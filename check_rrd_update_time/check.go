@@ -1,12 +1,13 @@
 package main
 
 import (
-	"github.com/fractalcat/nagiosplugin"
 	"flag"
-	"os"
-	"io/ioutil"
-	"time"
 	"fmt"
+	"github.com/fractalcat/nagiosplugin"
+	"io/ioutil"
+	"math"
+	"os"
+	"time"
 )
 
 func main() {
@@ -56,7 +57,6 @@ func main() {
 	}
 	perfNewest := float64(dNewest) / float64(time.Second)
 	perfOldest := float64(dOldest) / float64(time.Second)
-	c.AddPerfDatum("newest_update", "s", perfNewest)
-	c.AddPerfDatum("oldest_update", "s", perfOldest)
+	c.AddPerfDatum("newest_update", "s", perfNewest, 0.0, math.Inf(1), *warnSec, *critSec)
+	c.AddPerfDatum("oldest_update", "s", perfOldest, 0.0, math.Inf(1))
 }
-
