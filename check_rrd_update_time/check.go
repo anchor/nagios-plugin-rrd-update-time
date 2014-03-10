@@ -57,6 +57,6 @@ func main() {
 	}
 	perfNewest := float64(dNewest) / float64(time.Second)
 	perfOldest := float64(dOldest) / float64(time.Second)
-	c.AddPerfDatum("newest_update", "s", perfNewest, 0.0, math.Inf(1), *warnSec, *critSec)
+	c.AddPerfDatum("newest_update", "s", perfNewest, 0.0, math.Inf(1), float64(*warnSec), float64(*critSec))
 	c.AddPerfDatum("oldest_update", "s", perfOldest, 0.0, math.Inf(1))
 }
